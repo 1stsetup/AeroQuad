@@ -118,9 +118,7 @@ void measureBatteryVoltage(unsigned short deltaTime) {
 #endif
     if (batteryIsAlarm(i)) {
       batteryAlarm = true;
-    }
-
-    if (batteryIsWarning(i)) {
+    } else if (batteryIsWarning(i)) {
       batteryWarning = true;
     }
 
