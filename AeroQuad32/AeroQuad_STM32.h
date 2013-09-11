@@ -6,6 +6,7 @@
 	tSerial &Serial = SERIAL_VAR;
 
 	#define ADC_NUMBER_OF_BITS	12
+	#define ADC_NUMBER_OF_VALUES	4096
 
 	// Receiver Declaration
 	#if defined (ReceiverPPM) || defined (ReceiverHWPPM)

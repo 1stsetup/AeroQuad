@@ -1067,6 +1067,9 @@
 #ifndef ADC_NUMBER_OF_BITS
 #define ADC_NUMBER_OF_BITS 10
 #endif
+#ifndef ADC_NUMBER_OF_VALUES
+#define ADC_NUMBER_OF_VALUES 1024
+#endif
 
 //********************************************************
 //****************** KINEMATICS DECLARATION **************
