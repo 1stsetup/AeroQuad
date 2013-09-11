@@ -18,7 +18,7 @@
   along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
 
-#define ADC_NUMBER_OF_BITS 10
+#define ADC_NUMBER_OF_VALUES 1024
 
 #include <SensorsStatus.h>
 #include <MaxSonarRangeFinder.h>
