@@ -82,18 +82,12 @@ byte batteryGetCellCount(byte batNo) {
 
 boolean batteryIsAlarm(byte batNo) {
 
-  if (batteryData[batNo].voltage < batteryGetCellCount(batNo) * batteryAlarmCellVoltage) {
-    return true;
-  }
-  return false;
+  return (batteryData[batNo].voltage < batteryGetCellCount(batNo) * batteryAlarmCellVoltage);
 }
 
 boolean batteryIsWarning(byte batNo) {
 
-  if (batteryData[batNo].voltage < batteryGetCellCount(batNo) * batteryWarningCellVoltage) {
-    return true;
-  }
-  return false;
+  return (batteryData[batNo].voltage < batteryGetCellCount(batNo) * batteryWarningCellVoltage);
 }
 
 void measureBatteryVoltage(unsigned short deltaTime) {
