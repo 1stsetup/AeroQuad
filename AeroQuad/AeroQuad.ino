@@ -1162,7 +1162,11 @@
 //*************** BATTERY MONITOR DECLARATION ************
 //********************************************************
 #ifdef BattMonitor
-  #include <BatteryMonitor.h>
+  #ifndef BattMonitor2
+    #include <BatteryMonitor.h>
+  #else
+    #include <BatteryMonitor2.h>
+  #endif
   #ifndef BattCustomConfig
     #define BattCustomConfig BattDefaultConfig
   #endif
