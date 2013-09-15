@@ -327,6 +327,12 @@ void PrintValueComma(unsigned long val)
   comma();
 }
 
+void PrintValueComma(unsigned short val)
+{
+  SERIAL_PRINT(val);
+  comma();
+}
+
 void PrintValueComma(byte val)
 {
   SERIAL_PRINT(val);
@@ -517,6 +523,11 @@ void sendSerialTelemetry() {
       PrintValueComma(batteryMonitorAlarmVoltage);
       PrintValueComma(batteryMonitorThrottleTarget);
       PrintValueComma(batteryMonitorGoingDownTime);
+      for (byte i=0; i < numberOfBatteries; i++) {
+        PrintValueComma(i);
+        PrintValueComma(batteryData[i].pinValue);
+        PrintValueComma(batteryData[i].voltage);
+      }
     #else
       PrintDummyValues(3);
     #endif

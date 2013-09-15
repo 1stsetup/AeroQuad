@@ -57,10 +57,10 @@ void initializeBatteryMonitor(byte nb, float alarmVoltage) {
 
   numberOfBatteries = nb;
   setBatteryCellVoltageThreshold(alarmVoltage);
-  byte i = numberOfBatteries - 1;
+  byte i = numberOfBatteries;
   do {
-    resetBattery(i);
     i--;
+    resetBattery(i);
   } while (i);
   measureBatteryVoltage(0); // Initial measurement
 }
@@ -94,9 +94,11 @@ void measureBatteryVoltage(unsigned short deltaTime) {
 
   batteryAlarm = false;  
   batteryWarning = false;
-  byte i = numberOfBatteries - 1;
+  byte i = numberOfBatteries;
   do {
-    batteryData[i].voltage = (long)analogRead(batteryData[i].vPin) * batteryData[i].vScale / ADC_NUMBER_OF_VALUES + batteryData[i].vBias;
+    i--;
+    batteryData[i].pinValue = analogRead(batteryData[i].vPin);
+    batteryData[i].voltage = (long)batteryData[i].pinValue * batteryData[i].vScale / ADC_NUMBER_OF_VALUES + batteryData[i].vBias;
 #ifdef BM_EXTENDED
     if (batteryData[i].voltage < batteryData[i].minVoltage) {
       batteryData[i].minVoltage = batteryData[i].voltage;
@@ -116,7 +118,6 @@ void measureBatteryVoltage(unsigned short deltaTime) {
       batteryWarning = true;
     }
 
-    i--;
   } while (i);
 }
 #endif

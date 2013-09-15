@@ -32,6 +32,7 @@ struct BatteryData {
   byte  cells;                  // Number of Cells (used for alarm/warning voltage
   short vScale,vBias;  // voltage polynom V = vbias + AnalogIn(vpin)*vscale
   unsigned short voltage;       // Current battery voltage (in 10mV:s)
+  int pinValue;
 #ifdef BM_EXTENDED
   unsigned short minVoltage;    // Minimum voltage since reset
   byte  cPin;             // A/D pin for current sensor (255 = BM_NOPIN <=> no sensor)
